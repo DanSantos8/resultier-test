@@ -13,7 +13,6 @@ export const useDashboard = create<BearState>()(
     fetchDashboards: async (token) => {
       const api = requester()
       const response = await api.fetchDashboard(token)
-      console.log(response.data)
 
       set({
         dashboards: response.data.dashboard,
