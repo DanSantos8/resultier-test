@@ -4,7 +4,7 @@ import { AuthContext } from "./AuthContext"
 
 export default function RequireAuth({ children }: { children: JSX.Element }) {
   const { user } = useContext(AuthContext)
-  let location = useLocation()
+  const location = useLocation()
 
   if (!user) {
     return <Navigate to="/" state={{ from: location }} replace />

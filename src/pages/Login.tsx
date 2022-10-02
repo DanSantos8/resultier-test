@@ -16,7 +16,7 @@ export default function Login() {
   const { signin } = useContext(AuthContext)
   const { setToken } = useLogin()
 
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [form, setForm] = useState(initialFormData)
 
@@ -28,7 +28,7 @@ export default function Login() {
     setForm(value)
   }
 
-  const validateForm = form.username.length < 5
+  const validateForm = form.username.length < 5 || form.password.length < 5
 
   const handleSubmitForm = async () => {
     try {
@@ -36,25 +36,33 @@ export default function Login() {
       setToken(res.access_token)
       navigate("/dashboard")
     } catch (e) {
-      navigate("/login")
+      navigate("/")
     }
   }
 
   return (
     <div className="flex justify-center place-items-center h-screen">
-      <div className="flex flex-col bg-white p-5 justify-center place-items-center h-80 gap-4 border-gray-900 border-2">
-        <Icon />
+      <div className="flex flex-col bg-white p-5 justify-center place-items-center h-80 max-w-[312px] gap-4 border-gray-900 border-2">
+        <div className="flex gap-2 h-28 mb-3">
+          <span>
+            Freddy&apos;s <br /> Artisanal <br /> Halloween <br /> Candy shop
+          </span>
+          <Icon />
+        </div>
+
         <Input
           type="text"
           name="username"
           value={form.username}
           onChange={handleFormValues}
+          placeholder="username"
         />
         <Input
           type="password"
           name="password"
           value={form.password}
           onChange={handleFormValues}
+          placeholder="password"
         />
         <Button
           text="Login"

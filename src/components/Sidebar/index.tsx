@@ -5,7 +5,7 @@ import { Icon } from "../Icons"
 export default function Sidebar() {
   const { signout } = useContext(AuthContext)
   return (
-    <ul className="flex flex-col w-48 text-xl gap-4 py-5 border-r-2 border-gray-800">
+    <ul className="flex flex-col w-48 text-xl gap-4 py-5 border-r-2 border-gray-800 p-4">
       <li>
         <Icon />
       </li>

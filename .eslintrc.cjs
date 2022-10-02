@@ -10,7 +10,8 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:testing-library/react"
+    "plugin:testing-library/react",
+    "plugin:@typescript-eslint/recommended"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -25,7 +26,8 @@ module.exports = {
     requireConfigFile: false,
   },
   plugins: [
-    "import"
+    "import",
+    "@typescript-eslint"
   ],
   root: true,
   rules: {

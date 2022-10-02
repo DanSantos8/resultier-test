@@ -1,5 +1,5 @@
 import create from "zustand"
-import { devtools, persist } from "zustand/middleware"
+import { devtools } from "zustand/middleware"
 import { requester } from "../services/requester"
 
 interface BearState {
@@ -10,9 +10,10 @@ interface BearState {
 export const useDashboard = create<BearState>()(
   devtools((set) => ({
     dashboards: [],
-    fetchDashboards: async (token: string) => {
+    fetchDashboards: async (token) => {
       const api = requester()
       const response = await api.fetchDashboard(token)
+      console.log(response.data)
 
       set({
         dashboards: response.data.dashboard,

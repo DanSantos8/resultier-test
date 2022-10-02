@@ -27,25 +27,31 @@ export default function Orders() {
         onChange={(e) => setTerm(e.target.value)}
         name="search"
         value={term}
+        placeholder="Search"
       />
-      <table className="table-auto text-left border-collapse border border-slate-400">
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order: any) => (
-            <tr key={order.productName}>
-              <td>{order.productName}</td>
-              <td>{order.quantity}</td>
-              <td>{order.status}</td>
+
+      {!orders.length && <div>No results... </div>}
+
+      {orders.length > 0 && (
+        <table className="table-auto text-left border-collapse border border-slate-400">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orders.map((order: any) => (
+              <tr key={order.productName}>
+                <td>{order.productName}</td>
+                <td>{order.quantity}</td>
+                <td>{order.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   )
 }

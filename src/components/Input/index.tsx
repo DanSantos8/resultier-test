@@ -3,7 +3,7 @@ import { IForm } from "../../types/types"
 
 interface InputProps extends IForm {
   type: string
-  // eslint-disable-next-line no-unused-vars
+  placeholder: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
